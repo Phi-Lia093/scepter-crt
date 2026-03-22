@@ -87,4 +87,34 @@ int close(int fd);
  */
 int exec(const char *path);
 
+/**
+ * ioctl - Device-specific I/O control operations
+ * @fd: File descriptor
+ * @cmd: Control command
+ * @arg: Command argument (device-specific)
+ * 
+ * Returns: 0 on success, device-specific value, or -1 on error
+ */
+int ioctl(int fd, unsigned int cmd, unsigned int arg);
+
+/**
+ * dup - Duplicate a file descriptor
+ * @oldfd: File descriptor to duplicate
+ * 
+ * Returns: New file descriptor on success, -1 on error
+ */
+int dup(int oldfd);
+
+/**
+ * dup2 - Duplicate file descriptor to specific number
+ * @oldfd: File descriptor to duplicate
+ * @newfd: Desired file descriptor number
+ * 
+ * Returns: newfd on success, -1 on error
+ */
+int dup2(int oldfd, int newfd);
+
+/* ioctl commands for /dev/tty */
+#define IOCTL_TTY_CLEAR  1    /* Clear screen and reset cursor */
+
 #endif /* SYSCALL_H */

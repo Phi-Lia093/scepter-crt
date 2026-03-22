@@ -12,7 +12,7 @@ _start:
     xor %esp, %esp              /* ESP = 0 */
     not %esp                    /* ESP = 0xFFFFFFFF */
     sub $0x40000003, %esp       /* ESP = 0xBFFFFFC */
-    
+
     /* Call main() - no arguments for now */
     call main
     
@@ -25,11 +25,4 @@ _start:
 .hang:
     hlt
     jmp .hang
-
-/* ============================================================================
- * Data
- * ============================================================================ */
-
-.section .rodata
-dev_tty0:
-    .asciz "/dev/tty0"
+    
