@@ -79,4 +79,12 @@ int write(int fd, const void *buf, unsigned int count);
  */
 int close(int fd);
 
+/**
+ * exec - Replace current process with new program
+ * @path: Path to executable file
+ * 
+ * Returns: -1 on error (does not return on success)
+ */
+int exec(const char *path);
+
 #endif /* SYSCALL_H */

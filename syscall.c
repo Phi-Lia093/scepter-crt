@@ -11,6 +11,7 @@
 #define SYS_OPEN   5
 #define SYS_CLOSE  6
 #define SYS_WAIT4  7
+#define SYS_EXECVE 11
 
 /* ============================================================================
  * Syscall invocation helper
@@ -103,4 +104,9 @@ int write(int fd, const void *buf, unsigned int count)
 int close(int fd)
 {
     return syscall1(SYS_CLOSE, fd);
+}
+
+int exec(const char *path)
+{
+    return syscall1(SYS_EXECVE, (int)path);
 }

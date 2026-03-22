@@ -1,26 +1,21 @@
 #include "syscall.h"
 
-// int fd = -1;
-
 int main(void)
 {
-    int fd = -1;
-    const char *msg = "Hello from C!\n";
+    open("/dev/kbd0", O_RDWR);
+    open("/dev/vga0", O_RDWR);
+    open("/dev/vga0", O_RDWR);
     
-    int len = 0;
-    while (msg[len] != '\0') {
-        len++;
-    }
-    
-    fd = open("/dev/vga0", O_RDWR);
-    write(fd, msg, len);
+    write(1, "running init program\n", 21);
 
     if(fork()){
-        write(fd, "AAA\n", 4);
+        
     }else{
-        write(fd, "BBB\n", 4);
-        exit(0);
+        exec("/sh");
+        write(1, "exec failed\n", 12);
+        exit(-1);
     }
+    
     
     while(1);
 }

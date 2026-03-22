@@ -68,6 +68,8 @@ clean:
 init: $(LIBC)
 	@$(CC) $(CFLAGS) -c init.c -o $(BUILD_DIR)/init.o
 	@$(LD) $(LDFLAGS) -o build/init $(BUILD_DIR)/crt0.o $(BUILD_DIR)/init.o $(LIBC)
+	@$(CC) $(CFLAGS) -c sh.c -o $(BUILD_DIR)/sh.o
+	@$(LD) $(LDFLAGS) -o build/sh $(BUILD_DIR)/crt0.o $(BUILD_DIR)/sh.o $(LIBC)
 
 # ============================================================================
 # Dependencies
