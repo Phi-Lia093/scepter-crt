@@ -46,7 +46,7 @@ SYSCALL_SOURCES = syscall.c
 CRT0_SOURCE = libc/crt0.s
 
 # Core utilities
-COREUTILS = init sh test
+COREUTILS = init sh
 
 # Object files (in build directory)
 LIBC_OBJECTS = $(addprefix $(BUILD_DIR)/, $(LIBC_C_SOURCES:.c=.o))
@@ -56,7 +56,6 @@ ALL_LIB_OBJECTS = $(LIBC_OBJECTS) $(SYSCALL_OBJECTS)
 # Final executables in root filesystem
 INIT_BIN = $(ROOT_DIR)/init
 SH_BIN = $(BIN_DIR)/sh
-TEST_BIN = $(BIN_DIR)/test
 
 # ============================================================================
 # Build targets
